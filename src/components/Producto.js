@@ -14,14 +14,12 @@ const styles = {
   },
 };
 
-const agregarAlCarro = () => console.log("no hace nada")
-
 class Producto extends Component {
   render() {
-    const { producto } = this.props;
+    const { producto, agregarAlCarro } = this.props;
     return (
       <div style={styles.producto}>
-        <img style={styles.img} alt={producto.name} src={producto.img}></img>
+        <img style={styles.img} alt={producto.nombre} src={producto.img}></img>
         <h3>{producto.nombre}</h3>
         <p>{producto.price}</p>
         <Button onClick={() => agregarAlCarro(producto)}>

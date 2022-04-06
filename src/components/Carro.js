@@ -19,10 +19,20 @@ const styles = {
 
 class Carro extends Component {
   render() {
+    const { carro } = this.props;
+
+    let sumaTotal = 0;
+    {
+      for (const x of carro) {
+        sumaTotal += x.cantidad;
+      }
+    }
+
+    const cantidad = carro.cantidad;
     return (
       <div>
         <span style={styles.bubble}>
-          <BubbleAlert value={10} />
+          {sumaTotal !== 0 ? <BubbleAlert value={sumaTotal} /> : null}
         </span>
         <button style={styles.carro}>Carro</button>
       </div>
