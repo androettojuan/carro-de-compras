@@ -1,5 +1,6 @@
 import { Component } from "react";
 import BubbleAlert from "./BubbleAlert";
+import DetallesCarro from "./DetallesCarro";
 
 const styles = {
   carro: {
@@ -19,7 +20,7 @@ const styles = {
 
 class Carro extends Component {
   render() {
-    const { carro } = this.props;
+    const { carro, mostrarCarro, esCarroVisible } = this.props;
 
     let sumaTotal = 0;
     {
@@ -34,7 +35,10 @@ class Carro extends Component {
         <span style={styles.bubble}>
           {sumaTotal !== 0 ? <BubbleAlert value={sumaTotal} /> : null}
         </span>
-        <button style={styles.carro}>Carro</button>
+        <button onClick={mostrarCarro} style={styles.carro}>
+          Carro
+        </button>
+        {esCarroVisible ? <DetallesCarro carro={carro} /> : null}
       </div>
     );
   }
